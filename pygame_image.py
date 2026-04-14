@@ -24,17 +24,19 @@ def main():
         screen.blit(bg_img, [-x, 0]) #練習２
         screen.blit(bg_img2, [-x + 1600, 0])
         screen.blit(bg_img, [-x + 3200, 0])
-        screen.blit(kk_img,kk_rct)
-        kk_rct.move_ip((-1,0))
+        screen.blit(kk_img,[kk_rct[0]-x,kk_rct[1]])
+        xxx = 0
+        yyy = 0
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0,-1))
+            yyy = -1
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0,+1))
+            yyy = +1
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1,0))
+            xxx = -1
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((+2,0))
+            xxx = +2
+        kk_rct.move_ip((xxx,yyy))
         pg.display.update()
         tmr += 1        
         clock.tick(200)
